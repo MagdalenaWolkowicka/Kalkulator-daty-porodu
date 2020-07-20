@@ -21,33 +21,30 @@ public class Main {
         System.out.println("Gratulacje!");
     }
 
-    private static void calculatePregnancyWeek(LocalDate dateBefore, LocalDate dateAfter) {
+    private static void calculatePregnancyWeek(LocalDate firstDayOfTheLastMenstrual, LocalDate currentDate) {
 
-        long weeksBetween = ChronoUnit.WEEKS.between(dateBefore, dateAfter);
+        long weeksBetween = ChronoUnit.WEEKS.between(firstDayOfTheLastMenstrual, currentDate);
         long pregnancyWeek = (weeksBetween + 1);
         System.out.println(pregnancyWeek + " tydzień");
     }
 
-    private static void calculatePrengancyMonth(LocalDate dateBefore, LocalDate dateAfter) {
+    private static void calculatePrengancyMonth(LocalDate firstDayOfTheLastMenstrual, LocalDate currentDate) {
 
-        Period period = Period.between(dateBefore, dateAfter);
+        Period period = Period.between(firstDayOfTheLastMenstrual, currentDate);
         int pregnancyMonth = (period.getMonths() + 1);
         System.out.println(pregnancyMonth + " miesiąc");
     }
 
-    private static void calculatePrengancyTrimestr(LocalDate dateBefore, LocalDate dateAfter) {
+    private static void calculatePrengancyTrimestr(LocalDate firstDayOfTheLastMenstrual, LocalDate currentDate) {
 
-        Period period = Period.between(dateBefore, dateAfter);
+        Period period = Period.between(firstDayOfTheLastMenstrual, currentDate);
         int pregnancyMonth = (period.getMonths() + 1);
         if (pregnancyMonth < 4) {
-            int pregnancyTrimestr = 1;
-            System.out.println(pregnancyTrimestr + " trymestr");
+            System.out.println("1 trymestr");
         } else if (pregnancyMonth >= 4 && pregnancyMonth < 7) {
-            int pregnancyTrimestr = 2;
-            System.out.println(pregnancyTrimestr + " trymestr");
-        } else if (pregnancyMonth >= 7) {
-            int pregnancyTrimestr = 3;
-            System.out.println(pregnancyTrimestr + " trymestr");
+            System.out.println("2 trymestr");
+        } else {
+            System.out.println("3 trymestr");
         }
     }
 
